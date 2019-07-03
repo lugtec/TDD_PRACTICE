@@ -26,11 +26,11 @@ TEST (fzTest, FizzBuzzNos) {
 }
 
 
-TEST (fzTest, failNumNos) { 
+TEST (fzTest, NumRetNos) { 
         EXPECT_STREQ("13",fb.printFizzBuzz(13).data());
 }
 
-TEST (fzTest, failFZNos) { 
+TEST (fzTest, ShouldFaildFZNos) { 
         EXPECT_STREQ("Fizz",fb.printFizzBuzz(13).data());
 }
 

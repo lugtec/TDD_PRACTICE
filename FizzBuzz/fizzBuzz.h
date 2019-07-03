@@ -16,12 +16,17 @@ class FizzBuzz{
     private:
     int m_data;
 
+
     public:
     void setData(int data);
-    int isFizz(int data,string *fiz);
-    int isBuzz(int data,string *buz);
+    string isFizz(int data);
+    string isBuzz(int data);
+    string judgeRet(string,string,string);
     string printFizzBuzz(int data);
+
 };
+
+
 
 
 #endif

@@ -6,54 +6,72 @@
  ************************************************************************/
 #include "fizzBuzz.h"
 
+
+string FizzBuzz::printFizzBuzz(int data)
+{
+    string turnDataStr=to_string(data);
+    string retFiz=isFizz(data);
+    string retBuz=isBuzz(data);
+    
+    return judgeRet(retFiz,retBuz,turnDataStr);
+
+}
+
+
 void FizzBuzz::setData(int data)
 {
     m_data=data;
 }
 
 
-int FizzBuzz::isFizz(int data,string *res )
+string FizzBuzz::isFizz(int data )
 {
     string name="Fizz";
     if(data%3==0)
     {
-        *res=*res+name;
-        return 0;
+       return name;
     }
-        
-     return -1;
-    
-
+     return to_string(data);
 }
 
 
-int FizzBuzz::isBuzz(int data,string *res )
+string FizzBuzz::isBuzz(int data )
 {
     string name="Buzz";
     if(data%5==0)
     {
-        *res=*res+name;
-        return 0;
+        return name;
     }
         
-    return -1;
+    return to_string(data);
     
 }
 
 
-string FizzBuzz::printFizzBuzz(int data)
+string FizzBuzz::judgeRet(string retFiz,string retBuz,string turnDataStr )
 {
     string fizbuz;
-    int retFiz=0;
-    int retBuz=0;
-    
-    retFiz=isFizz(data,&fizbuz);
-    retBuz=isBuzz(data,&fizbuz);
 
-    if((retFiz<0)&&(retBuz<0))
+    if((retFiz!=turnDataStr)&&(retBuz!=turnDataStr))
     {
-        fizbuz=to_string(data);
+        fizbuz=retFiz+retBuz;
+    }
+
+    if((retFiz==turnDataStr)&&(retBuz==turnDataStr))
+    {
+        fizbuz=turnDataStr;
+    }
+
+    if((retFiz==turnDataStr)&&(retBuz!=turnDataStr))
+    {
+        fizbuz=retBuz;
     }
     
+    if((retFiz!=turnDataStr)&&(retBuz==turnDataStr))
+    {
+        fizbuz=retFiz;
+    }
+
     return fizbuz;
+
 }
